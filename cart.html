@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Mishra Kirana Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="index.html" class="logo">
+            <i class="fas fa-store"></i>
+            Mishra Kirana
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#products">Products</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </li>
+        </ul>
+        <button class="mobile-menu-btn" onclick="toggleMobileNav()">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" onclick="toggleMobileNav()">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="mobile-nav-links">
+            <li><a href="index.html#home" onclick="toggleMobileNav()">Home</a></li>
+            <li><a href="index.html#about" onclick="toggleMobileNav()">About</a></li>
+            <li><a href="index.html#products" onclick="toggleMobileNav()">Products</a></li>
+            <li><a href="index.html#services" onclick="toggleMobileNav()">Services</a></li>
+            <li><a href="index.html#contact" onclick="toggleMobileNav()">Contact</a></li>
+        </ul>
+    </div>
+    <div class="overlay" id="overlay" onclick= "toggleMobileNav()"></div>
+
+    <!-- Cart Page Content -->
+    <section class="cart-section">
+        <div class="cart-container">
+            <div class="cart-header">
+                <h1><i class="fas fa-shopping-cart"></i> Your Shopping Cart</h1>
+                <a href="index.html#products" class="continue-shopping">
+                    <i class="fas fa-arrow-left"></i> Continue Shopping
+                </a>
+            </div>
+
+            <div class="cart-content">
+                <!-- Cart Items Section -->
+                <div class="cart-items-wrapper">
+                    <div class="empty-cart" id="emptyCart">
+                        <i class="fas fa-shopping-basket"></i>
+                        <h2>Your cart is empty</h2>
+                        <p>Add some delicious products to get started!</p>
+                        <a href="index.html#products" class="btn btn-primary">
+                            <i></i> Browse Products
+                        </a>
+                    </div>
+
+                    <div class="cart-items" id="cartItems">
+                        <!-- Cart items will be dynamically added here -->
+                    </div>
+                </div>
+
+                <!-- Cart Summary Section -->
+                <div class="cart-summary" id="cartSummary">
+                    <h2>Order Summary</h2>
+                    
+                    <div class="summary-row">
+                        <span>Subtotal (<span id="totalItems">0</span> items)</span>
+                        <span class="amount">₹<span id="subtotal">0</span></span>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Delivery Charges</span>
+                        <span class="amount delivery-charge" id="deliveryCharge">₹0</span>
+                    </div>
+
+                    <div class="delivery-info">
+                        <i class="fas fa-truck"></i>
+                        <span id="deliveryMessage">Free delivery within 3km radius</span>
+                    </div>
+
+                    <div class="summary-divider"></div>
+
+                    <div class="summary-row total-row">
+                        <span>Total Amount</span>
+                        <span class="amount total-amount">₹<span id="totalAmount">0</span></span>
+                    </div>
+
+                    <button class="btn btn-primary checkout-btn" onclick="proceedToCheckout()">
+                        <i class="fas fa-check-circle"></i> Proceed to Checkout
+                    </button>
+
+                    <div class="payment-methods">
+                        <p>We Accept:</p>
+                        <div class="payment-icons">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <i class="fab fa-cc-visa"></i>
+                            <i class="fab fa-cc-mastercard"></i>
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                    </div>
+
+                    <div class="trust-badges">
+                        <div class="trust-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>100% Secure</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fas fa-undo"></i>
+                            <span>Easy Returns</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recommended Products -->
+            <div class="recommended-section" id="recommendedSection">
+                <h2>You May Also Like</h2>
+                <div class="recommended-products" id="recommendedProducts">
+                    <!-- Recommended products will be added here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Mishra Kirana Store</h3>
+                <p>Your trusted neighborhood store for quality groceries and daily essentials since 1980.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="index.html#products"><i class="fas fa-chevron-right"></i> Products</a></li>
+                    <li><a href="index.html#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                    <li><a href="index.html#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-phone"></i> +91 91318 03345</li>
+                    <li><i class="fas fa-envelope"></i> mishrakirana@gmail.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Baikunthpur, Koriya, Chhattisgarh</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Mishra Kirana Store. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>
